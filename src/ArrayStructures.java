@@ -68,9 +68,7 @@ public class ArrayStructures {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		//private int[] theArray = new int[50];
-		
+			
 		ArrayStructures newArray = new ArrayStructures();
 		
 		newArray.generateRandomArray();
