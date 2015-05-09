@@ -64,7 +64,71 @@ public class ArrayStructures {
 		arraySize++;
 		}
 	
+
+	public String linearSearch(int value){
 		
+		String results = "";
+		
+		for(int i=0; i< arraySize; i++){
+			
+			if(theArray[i]==value){
+				
+				results =  i + " ";
+				
+			}
+		}
+		if(results == "") results = "not found";
+		return results;
+	}
+	
+	public void bubbleSort(){
+		
+		
+		for(int i=arraySize-1; i >1 ; i--){
+			
+			for(int j=0; j>i; j++){
+				
+				if(theArray[j]<theArray[j+1])
+				{
+					
+					swap(j,j+1);
+				}
+			}
+		}
+	}
+	
+	public void binarySearch(int value){
+		
+		int lowIndex = 0;
+		        int highIndex = arraySize - 1;
+		            
+		           while(lowIndex <= highIndex){
+	                 
+	                int middleIndex = (highIndex + lowIndex) / 2;
+	                
+		               if(theArray[middleIndex] < value) lowIndex = middleIndex + 1;
+		                
+		             else if(theArray[middleIndex] > value) highIndex = middleIndex - 1;
+		                 
+		              else {
+	                     
+		                    System.out.println("\nFound a Match for " + value + " at Index " + middleIndex);
+		                
+		                    lowIndex = highIndex + 1;
+		                     
+		              }
+		               }
+		
+	}
+		
+
+	private void swap(int firstValue, int secondValue) {
+		// TODO Auto-generated method stub
+		
+	int temp = theArray[firstValue];
+	theArray[firstValue] = theArray[secondValue];
+	theArray[secondValue] = temp;	
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -78,6 +142,11 @@ public class ArrayStructures {
 		newArray.deleteIndex(4);
 		newArray.printArray();
 		newArray.insertValue(100);
+		newArray.printArray();
+		System.out.println(newArray.linearSearch(10));
+		newArray.bubbleSort();
+		newArray.printArray();
+		newArray.binarySearch(100);
 		newArray.printArray();
 	}
 
